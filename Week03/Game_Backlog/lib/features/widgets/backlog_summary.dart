@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../models/game.dart';
 
+
 class BacklogSummary extends StatelessWidget {
   const BacklogSummary({super.key, required this.games});
 
@@ -9,6 +10,9 @@ class BacklogSummary extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
+    final muted = Theme.of(context).colorScheme.onSurfaceVariant;
+
     return Padding(
       padding: const EdgeInsets.all(16),
       child: Row(
@@ -19,9 +23,12 @@ class BacklogSummary extends StatelessWidget {
               children: [
                 Text(
                   '${games.where((g) => g.status == s).length}',
-                  style: Theme.of(context).textTheme.headlineSmall,
+                  style: textTheme.titleLarge?.copyWith(color: muted),
                 ),
-                Text(s.label),
+                Text(
+                  s.label,
+                  style: textTheme.labelMedium?.copyWith(color: muted),
+                ),
               ],
             ),
         ],

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../models/game.dart';
 import 'status_badge.dart';
 
+
 class GameCard extends StatelessWidget {
   const GameCard({
     super.key,
@@ -15,11 +16,24 @@ class GameCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
+    final colors = Theme.of(context).colorScheme;
+
     return Card(
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
       child: ListTile(
-        title: Text(game.title),
-        subtitle: Text(game.platform),
+        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        title: Text(
+          game.title,
+          style: textTheme.headlineSmall?.copyWith(
+            fontWeight: FontWeight.w600,
+            color: colors.onSurface,
+          ),
+        ),
+        subtitle: Text(
+          game.platform,
+          style: textTheme.bodyMedium?.copyWith(color: colors.onSurfaceVariant),
+        ),
         leading: StatusBadge(status: game.status),
         trailing: PopupMenuButton<GameStatus>(
           onSelected: onStatusChanged,
