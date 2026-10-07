@@ -9,13 +9,11 @@ class GameSearchBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(16),
-      child: TextField(
+      child: SearchBar(
+        hintText: 'Cari game...',
+        leading: const Icon(Icons.search),
+        elevation: const WidgetStatePropertyAll<double>(0),
         onChanged: onChanged,
-        decoration: const InputDecoration(
-          prefixIcon: Icon(Icons.search),
-          hintText: 'Cari game...',
-          border: OutlineInputBorder(),
-        ),
       ),
     );
   }
