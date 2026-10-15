@@ -1,10 +1,6 @@
 import '../models/game.dart';
 
-/// Dipakai untuk menguji skenario di Chrome tanpa mengubah kode:
-///   flutter run -d chrome --dart-define=SCENARIO=empty
-///   flutter run -d chrome --dart-define=SCENARIO=long_text
-///   flutter run -d chrome --dart-define=SCENARIO=long_list
-/// Tanpa nilai, aplikasi memakai data awal biasa.
+
 const String kScenario = String.fromEnvironment('SCENARIO');
 
 const List<Game> kDefaultGames = [
